@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-title',
@@ -7,30 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TitleComponent implements OnInit {
   public name:string; 
-  public edad:number;
-  public nombres : string[];
   public isAvailable : boolean;
-  public css_class : string[];
+  public moreInformation : boolean = false;
+  public topics : string[];
+  public category : string; //mobile,web,other
 
   constructor() {
   }
-
+  @Input() subscribed : boolean;
+  
   ngOnInit(): void {
-    this.nombres = ["lucas","maximiliano", "alderete"];
-    this.name = "Luqui";
-    this.edad = 27;
+    this.category = "web";
+    this.name = "Lucas Alderete";
     this.isAvailable = true;
-    this.css_class = ["active","shadow"];
-
-    setTimeout(()=>this.name = "Lucas M Alderete",2000);
-    setTimeout(()=>this.isAvailable = false,2000);
-    setTimeout(()=> this.css_class = ["shadow"],2000);
-
+    this.moreInformation = false;
+    this.topics = [
+      "Goku", "Gohan","Cell","Majin buu", "Vegeta", "Trunks", "Picoro"
+    ];
   }
 
   public getInfo() {
     return `Esta info viene de una funcion desde title.components.ts. Y me trae los siguientes datos interpolados 
-    ${this.name} y ${this.edad}`  
+    ${this.name} `  
+  }
+
+  public toggleMoreInformation(){
+    this.moreInformation = !this.moreInformation;
   }
 
 }

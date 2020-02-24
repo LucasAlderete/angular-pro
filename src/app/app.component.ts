@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-pro';
+
+  public userSubscribed : boolean = false;
+  
+  public subscriptionChanged(ev : any){
+    console.log("El usuario se subscribio correctamente");
+    console.log(ev);
+    this.userSubscribed = ev;
+  }
+
 }

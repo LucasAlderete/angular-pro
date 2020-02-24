@@ -1,38 +1,44 @@
-<h1>
-    <ng-content></ng-content>
-</h1>
-<h3> {{name}}</h3>
+<h1>Dragon Ball Z</h1>
 
-<p *ngIf="isAvailable;else available">
-    Fecha de lanzamiento : 9 de Abril de 2020. 
-</p>
-
-<ng-template #available>
-    <span class="highline">Curso disponible</span>
+<ng-template #available >
+    <span class="highline">
+        Curso Disponible
+    </span>
 </ng-template>
 
-<div>
-    <button [disabled]="isAvailable" [ngClass]="css_class" type="button" name="button">
-        Aceptar
-    </button>
-</div>
-
-<!-- Ejemplo
-    <h1>Soy el component app-title!</h1>
-Esta es una interpolacion: {{name}}
-<div>
-    <b>Aca voy a mostrar el ngContent:</b> <ng-content select="div"></ng-content>
-</div>
-<p>
-    {{getInfo()}}
+<p *ngIf="!isAvailable; else available">
+    Lanzamiento 25 de Diciembre de 2020
 </p>
 
-<p>P:</p>
-<ng-content select='p'>
-</ng-content>
+<div class="category" [ngSwitch]="category">
+    <span *ngSwitchCase="'web'">Desarrollo Web</span>
+    <span *ngSwitchCase="'mobile'">Desarrollo Móvil</span>
+    <span *ngSwitchCase="'other'">Desarrollo General</span>
+    <span *ngSwitchDefault>No especificado</span>
+</div>
 
-<button  [disabled]="isAvailable" [ngClass]="{active:isAvailable,shadow:!isAvailable}" type="button" name="button">
-    Aceptar2
-</button>
+<h3>Tutor: {{ name }}</h3>
 
--->
+<div>
+    <a (click)="toggleMoreInformation()">
+        Más información
+        <i class="fa" [ngClass]="{'fa-chevron-circle-down' : !moreInformation, 'fa-chevron-circle-up': moreInformation}"></i>
+    </a>
+    <div *ngIf="moreInformation">
+        <p >
+            Este es un curso de Angular Profesional con duración de muchas horas y se aprenderan temas sobre Componentes,
+            Servicios, Animaciones, Modulos, fundamentos del framework y mucho más
+        </p>
+        <ul *ngFor="let topic of topics; index as posicion">
+            <li>{{posicion + 1}}.- {{topic}}</li>
+        </ul>
+    </div>
+</div>
+
+
+
+<div>
+    <button [disabled]="!isAvailable || subscribed" [ngClass]="{active:isAvailable && subscribed, shadow:!isAvailable}" type="button" name="button">
+        Inscribir
+    </button>
+</div>
