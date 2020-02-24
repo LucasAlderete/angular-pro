@@ -1,0 +1,38 @@
+<h1>
+    <ng-content></ng-content>
+</h1>
+<h3> {{name}}</h3>
+
+<p *ngIf="isAvailable;else available">
+    Fecha de lanzamiento : 9 de Abril de 2020. 
+</p>
+
+<ng-template #available>
+    <span class="highline">Curso disponible</span>
+</ng-template>
+
+<div>
+    <button [disabled]="isAvailable" [ngClass]="css_class" type="button" name="button">
+        Aceptar
+    </button>
+</div>
+
+<!-- Ejemplo
+    <h1>Soy el component app-title!</h1>
+Esta es una interpolacion: {{name}}
+<div>
+    <b>Aca voy a mostrar el ngContent:</b> <ng-content select="div"></ng-content>
+</div>
+<p>
+    {{getInfo()}}
+</p>
+
+<p>P:</p>
+<ng-content select='p'>
+</ng-content>
+
+<button  [disabled]="isAvailable" [ngClass]="{active:isAvailable,shadow:!isAvailable}" type="button" name="button">
+    Aceptar2
+</button>
+
+-->
