@@ -19,23 +19,23 @@
 
 <h3 [redBorder]="'pink'">Tutor: {{ name }}</h3>
 
-<div>
+<div [@showUp]="moreInformation" style="overflow: hidden;"> 
     <a (click)="toggleMoreInformation()">
         Más información
         <i class="fa" [ngClass]="{'fa-chevron-circle-down' : !moreInformation, 'fa-chevron-circle-up': moreInformation}"></i>
     </a>
-    <div *ngIf="moreInformation">
+    <div>
         <span class="lblDuracion">Duracion: {{ seconds | secondsToTimeFormat : true }}</span>
         <p>
             Este es un curso de Angular Profesional con duración de muchas horas y se aprenderan temas sobre Componentes,
             Servicios, Animaciones, Modulos, fundamentos del framework y mucho más
         </p>
-        <ul *ngFor="let topic of topics; index as posicion">
-            <li>{{posicion + 1}}.- {{topic}}</li>
-        </ul>
     </div>
 </div>
 
+<ul *ngFor="let topic of topics; index as posicion">
+    <li>{{posicion + 1}}.- {{topic}}</li>
+</ul>
 
 
 <div>

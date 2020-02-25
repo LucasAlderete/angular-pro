@@ -2,6 +2,6 @@
 <div>
     {{(srvArticle.artisObserver | async)?.length }} repositorios
 </div>
-<ul *ngFor="let repo of srvArticle.artisObserver | async">
+<ul [@staggeredShowUp]="(srvArticle.artisObserver | async)?.length" *ngFor="let repo of srvArticle.artisObserver | async">
     <li>{{repo.name}}</li>
 </ul>

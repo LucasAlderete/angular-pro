@@ -18,7 +18,7 @@ export class ArticlesService {
   constructor(private http : HttpClient) { }
 
   getAll(){
-    this.artisObserver = this.http.get('https://api.github.com/users/lucasalderete/repos')
+    this.artisObserver = this.http.get('https://api.github.com/users/codigofacilito/repos')
     .pipe(
       map((datos : Object[]) =>  {
         return datos.map( (item:any) => new Arti(item.id,item.name))

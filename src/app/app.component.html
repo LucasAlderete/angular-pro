@@ -1,9 +1,6 @@
 <router-outlet>
-  <div class="light">
-    <app-full-screen>
-      <app-title [subscribed]="userSubscribed"></app-title>
-      <app-user-card (subscribed)="subscriptionChanged($event)" ></app-user-card>
-      <app-articles></app-articles>
-    </app-full-screen>
-  </div>
+  <app-full-screen>
+    <app-articles></app-articles>
+    <app-title></app-title>
+  </app-full-screen>
 </router-outlet>

@@ -6,6 +6,7 @@
     padding: 1em;
     min-width: 300px;
     max-width: 400px;
+    height: auto;
 }
 
 :host-context(.light) h1{
@@ -36,7 +37,7 @@ button:not(.active){
     opacity: 0.56;
 }
 .category{
-    display: inline-block;
+    display: block;
 }
 .shadow{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);

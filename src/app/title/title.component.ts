@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { showUp } from '../animations/showUp.animations';
 
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',
-  styleUrls: ['./title.component.css']
+  styleUrls: ['./title.component.css'],
+  animations:[showUp]
 })
 export class TitleComponent implements OnInit {
   public name:string; 
@@ -25,7 +27,7 @@ export class TitleComponent implements OnInit {
     this.isAvailable = false;
     this.moreInformation = false;
     this.topics = [
-      "Goku", "Gohan","Cell","Majin buu", "Vegeta", "Trunks", "Picoro"
+      "Goku", "Gohan","Cell", "Picoro"
     ];
     this.launchDate = new Date(2020,1,24);
     this.price = 2000;
