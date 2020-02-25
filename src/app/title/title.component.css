@@ -49,3 +49,7 @@ button:not(.active){
     display: inline-block;
     color:white;
 }
+.lblDuracion{
+    font-weight: bold;
+    display: block;
+}

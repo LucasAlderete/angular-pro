@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { FullScreenComponent } from './full-screen/full-screen.component';
 import { UserCardComponent } from './user-card/user-card.component';
+import { SecondsToTimeFormat } from './pipes/SecondsToTimeFormats.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
     FullScreenComponent,
-    UserCardComponent
+    UserCardComponent,
+    SecondsToTimeFormat
   ],
   imports: [
     BrowserModule,

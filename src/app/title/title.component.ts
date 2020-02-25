@@ -13,6 +13,7 @@ export class TitleComponent implements OnInit {
   public category : string; //mobile,web,other
   public launchDate : Date;
   public price : number;
+  public seconds : number = 3600;
 
   constructor() {
   }
