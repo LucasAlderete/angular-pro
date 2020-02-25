@@ -3,11 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { debugOutputAstAsTypeScript } from '@angular/compiler';
 
 class Arti{
   constructor(public id : string, public name : string) {
-
   }
 }
 
@@ -15,19 +13,19 @@ class Arti{
   providedIn: 'root'
 })
 export class ArticlesService {
+  public artisObserver : Observable<Arti[]>;
 
   constructor(private http : HttpClient) { }
 
   getAll(){
-    this.http.get('https://api.github.com/users/lucasalderete/repos')
+    this.artisObserver = this.http.get('https://api.github.com/users/lucasalderete/repos')
     .pipe(
       map((datos : Object[]) =>  {
-        return datos.map(element => new Arti(element.id,element.name))
+        return datos.map( (item:any) => new Arti(item.id,item.name))
        })
-    )
-    .subscribe(data => {
-        console.log(data);
-      })
+    );
+
+    
   }
 
   buildObservable() : Observable<any>{
