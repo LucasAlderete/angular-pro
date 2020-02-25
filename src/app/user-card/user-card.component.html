@@ -1,0 +1,13 @@
+<div>
+    <img [src]="avatar" alt="Avatar del usuario" >
+    <p class="userName">
+        {{userName}}
+    </p>
+    <p class="name">
+        {{name}}
+    </p>
+
+    <input type="text" (change)="changing($event)" value="{{userName}}">
+    <input type="text" [(ngModel)]="name">
+
+</div>

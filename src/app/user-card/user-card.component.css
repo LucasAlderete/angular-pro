@@ -1,0 +1,38 @@
+:host{
+    display: block;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    padding: 1em;
+    min-width: 300px;
+    max-width: 400px;
+    margin-left: 1em;
+}
+
+:host-context(.light) h1{
+    background-color: #eee;
+    color:black;
+}
+input{
+    z-index: 99;
+}
+div{
+    display: grid;
+    grid-template-areas: "imagen imagen userName"
+                         "imagen  imagen name";
+    grid-template-rows: 100px 100px ;
+    grid-template-columns: 25% 25% 42%; /*1fr un tercio de pantalla*/
+    grid-gap: 15px; /*espacio entre los objetos*/
+    overflow: hidden;
+}
+.userName{
+    grid-area: userName;
+}
+.name{
+    grid-area: name;
+}
+img{
+    max-width: 100%;
+    max-height: 100%;
+    grid-area: imagen;
+}
