@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map , share } from 'rxjs/operators';
 
 class Arti{
   constructor(public id : string, public name : string) {
@@ -23,9 +23,11 @@ export class ArticlesService {
       map((datos : Object[]) =>  {
         return datos.map( (item:any) => new Arti(item.id,item.name))
        })
+    )
+    .pipe(
+      share()
     );
-
-    
+      
   }
 
   buildObservable() : Observable<any>{

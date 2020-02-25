@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from '../services/articles.service';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-articles',

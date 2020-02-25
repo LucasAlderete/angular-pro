@@ -1,4 +1,7 @@
 <h3>Mis Repos</h3>
+<div>
+    {{(srvArticle.artisObserver | async)?.length }} repositorios
+</div>
 <ul *ngFor="let repo of srvArticle.artisObserver | async">
     <li>{{repo.name}}</li>
 </ul>
