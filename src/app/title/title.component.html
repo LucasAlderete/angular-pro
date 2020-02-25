@@ -7,7 +7,7 @@
 </ng-template>
 
 <p *ngIf="!isAvailable; else available">
-    Lanzamiento 25 de Diciembre de 2020
+    Lanzamiento: {{ launchDate | date:"dd MMM y h:mm:ss" : "-0300" | uppercase }}
 </p>
 
 <div class="category" [ngSwitch]="category">
@@ -39,6 +39,6 @@
 
 <div>
     <button [disabled]="!isAvailable || subscribed" [ngClass]="{active:isAvailable && subscribed, shadow:!isAvailable}" type="button" name="button">
-        Inscribir
+        Inscribir {{ price | currency}}
     </button>
 </div>

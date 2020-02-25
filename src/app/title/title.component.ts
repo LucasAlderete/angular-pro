@@ -11,6 +11,8 @@ export class TitleComponent implements OnInit {
   public moreInformation : boolean = false;
   public topics : string[];
   public category : string; //mobile,web,other
+  public launchDate : Date;
+  public price : number;
 
   constructor() {
   }
@@ -19,11 +21,13 @@ export class TitleComponent implements OnInit {
   ngOnInit(): void {
     this.category = "web";
     this.name = "Lucas Alderete";
-    this.isAvailable = true;
+    this.isAvailable = false;
     this.moreInformation = false;
     this.topics = [
       "Goku", "Gohan","Cell","Majin buu", "Vegeta", "Trunks", "Picoro"
     ];
+    this.launchDate = new Date(2020,1,24);
+    this.price = 2000;
   }
 
   public getInfo() {
